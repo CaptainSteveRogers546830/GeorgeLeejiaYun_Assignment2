@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AZoom Car Rental | Reserve. Rent. Return.</title>
+  <meta name="description" content="Rent an electric car by the day, week or month. Reserve online with your credit card, pick up at our office and return at a designated car park.">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- ICON SPRITE: defined once, reused with <svg class="icon"><use href="#i-name"/></svg> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+    <symbol id="i-twitter" viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+  </svg>
+
+  <!-- HEADER: transparent over the hero, turns white after scrolling (see js/script.js) -->
+  <header class="site-header" id="site-header">
+    <a class="logo logo-brand" href="index.html" aria-label="AZoom Car Rental home">
+      <img src="images/logo.png" alt="" width="360" height="243">
+    </a>
+
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="header-right" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="header-right" id="header-right">
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="fleet.html">Fleet</a></li>
+          <li><a href="my-trips.html">My Trips</a></li>
+          <li><a href="employee.html">Employee</a></li>
+        </ul>
+      </nav>
+      <a class="header-phone" href="tel:+6580056589">
+        <svg class="icon"><use href="#i-phone"/></svg>
+        <span>+65 8005 6589</span>
+      </a>
+      <a class="header-account" id="account-link" href="login.html">
+        <svg class="icon"><use href="#i-user"/></svg>
+        <span>Log in</span>
+      </a>
+      <a class="button button-primary" href="booking.html">Reserve Now</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <!-- Background photo: decorative, so the alt text is empty -->
+      <img class="hero-bg" src="images/hero.jpg" alt="" width="1920" height="1108" fetchpriority="high">
+
+      <p class="badge">
+        <svg class="icon icon-filled"><use href="#i-star"/></svg>
+        100% electric fleet
+      </p>
+
+      <h1 id="hero-title">Reserve. Rent. Return.</h1>
+      <p class="hero-text">AZoom Car Rental makes it easy &mdash; reserve online with your credit card, pick up at our office, return at any designated car park. Simple, transparent, reliable.</p>
+
+      <form class="search-card" action="fleet.html" method="get">
+        <div class="field">
+          <label for="pickup-branch"><svg class="icon"><use href="#i-pin"/></svg> PICKUP LOCATION</label>
+          <div class="select-wrap">
+            <select id="pickup-branch" name="branch" required>
+              <option value="" selected disabled>Select a branch</option>
+              <option value="Toa Payoh">Toa Payoh</option>
+              <option value="Woodlands">Woodlands</option>
+              <option value="Changi">Changi</option>
+              <option value="Orchard Road">Orchard Road</option>
+              <option value="HarbourFront">HarbourFront</option>
+              <option value="Jurong East">Jurong East</option>
+            </select>
+            <svg class="icon"><use href="#i-chevron"/></svg>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="vehicle-type"><svg class="icon"><use href="#i-car"/></svg> VEHICLE TYPE</label>
+          <div class="select-wrap">
+            <select id="vehicle-type" name="type">
+              <option value="all" selected>All Categories</option>
+              <option value="Hatchback">Hatchback</option>
+              <option value="SUV">SUV</option>
+              <option value="Sedan">Sedan</option>
+              <option value="Luxury">Luxury</option>
+              <option value="Sports">Sports</option>
+            </select>
+            <svg class="icon"><use href="#i-chevron"/></svg>
+          </div>
+        </div>
+
+        <button type="submit" class="button button-primary button-wide">
+          <svg class="icon"><use href="#i-search"/></svg>
+          Search Available Cars
+        </button>
+      </form>
+
+      <ul class="stats" aria-label="AZoom at a glance">
+        <li><strong>30+</strong><span>Electric cars</span></li>
+        <li><strong>6</strong><span>Locations</span></li>
+        <li><strong>24/7</strong><span>Support</span></li>
+      </ul>
+    </section>
+
+    <!-- HOW IT WORKS: the five business events from the brief, in order -->
+    <section class="section section-tint" aria-labelledby="how-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">HOW IT WORKS</p>
+          <h2 id="how-title">The AZoom Rental Process</h2>
+          <p>From reservation to final payment &mdash; a simple, transparent five-step process.</p>
+        </header>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step-number" aria-hidden="true">01</span>
+            <span class="icon-box"><svg class="icon"><use href="#i-calendar"/></svg></span>
+            <h3>Reserve Online</h3>
+            <p>Browse our fleet and reserve your car with a credit card hold. No charge until pickup.</p>
+          </li>
+          <li class="step">
+            <span class="step-number" aria-hidden="true">02</span>
+            <span class="icon-box"><svg class="icon"><use href="#i-key"/></svg></span>
+            <h3>Pick Up at Office</h3>
+            <p>Visit any AZoom rental office to pick up your car. Our staff will get you on the road in minutes.</p>
+          </li>
+          <li class="step">
+            <span class="step-number" aria-hidden="true">03</span>
+            <span class="icon-box"><svg class="icon"><use href="#i-pin"/></svg></span>
+            <h3>Return at Car Park</h3>
+            <p>Drop off the car at any designated AZoom car park. Just park, lock, and confirm your return.</p>
+          </li>
+          <li class="step">
+            <span class="step-number" aria-hidden="true">04</span>
+            <span class="icon-box"><svg class="icon"><use href="#i-clipboard"/></svg></span>
+            <h3>Inspection</h3>
+            <p>Our team inspects the returned vehicle to ensure no damages. You'll be notified of the results.</p>
+          </li>
+          <li class="step">
+            <span class="step-number" aria-hidden="true">05</span>
+            <span class="icon-box"><svg class="icon"><use href="#i-dollar"/></svg></span>
+            <h3>Pay Final Bill</h3>
+            <p>Review your final bill &mdash; rental cost plus any damage charges. Pay securely online in seconds.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section" aria-labelledby="why-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">WHY CHOOSE US</p>
+          <h2 id="why-title">The AZoom Difference</h2>
+          <p>We go beyond just handing you the keys. Every rental comes with our promise of quality, transparency, and support.</p>
+        </header>
+
+        <ul class="features">
+          <li class="feature">
+            <span class="icon-box tone-green"><svg class="icon"><use href="#i-dollar"/></svg></span>
+            <h3>Best Price Guarantee</h3>
+            <p>Find a lower price elsewhere and we'll match it. No questions asked.</p>
+          </li>
+          <li class="feature">
+            <span class="icon-box tone-blue"><svg class="icon"><use href="#i-shield"/></svg></span>
+            <h3>Fully Insured</h3>
+            <p>Every rental includes comprehensive insurance coverage for peace of mind.</p>
+          </li>
+          <li class="feature">
+            <span class="icon-box tone-amber"><svg class="icon"><use href="#i-clock"/></svg></span>
+            <h3>Free Cancellation</h3>
+            <p>Plans change. Cancel up to 48 hours before pickup at no charge.</p>
+          </li>
+          <li class="feature">
+            <span class="icon-box tone-rose"><svg class="icon"><use href="#i-wrench"/></svg></span>
+            <h3>24/7 Roadside Assistance</h3>
+            <p>We're here whenever you need us, day or night, if anything goes wrong on the road.</p>
+          </li>
+          <li class="feature">
+            <span class="icon-box tone-violet"><svg class="icon"><use href="#i-award"/></svg></span>
+            <h3>Top-Rated Fleet</h3>
+            <p>All vehicles are recent electric models, charged and checked before every rental.</p>
+          </li>
+          <li class="feature">
+            <span class="icon-box tone-cyan"><svg class="icon"><use href="#i-headset"/></svg></span>
+            <h3>Dedicated Support</h3>
+            <p>Real humans ready to help via phone, email, or chat whenever you need them.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- WHAT CUSTOMERS SAY -->
+    <section class="section section-tint" aria-labelledby="reviews-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">CUSTOMER REVIEWS</p>
+          <h2 id="reviews-title">What our customers say</h2>
+          <p id="home-reviews-summary"></p>
+        </header>
+        <div class="review-grid" id="home-reviews"></div>
+        <p class="reviews-cta"><a class="button button-ghost" href="fleet.html">Browse the fleet and read every review</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+        <a class="logo" href="index.html" aria-label="AZoom Car Rental home">
+          <img src="images/logo.png" alt="AZoom Car Rental" width="100" height="150">
+          <span class="logo-text">
+            <span class="logo-name">AZoom</span>
+            <span class="logo-sub">CAR RENTAL</span>
+          </span>
+        </a>
+        <p>Your trusted partner for car rentals. Reserve online, pick up at our office, return at any designated car park.</p>
+        <ul class="social">
+          <li><a href="#" aria-label="Facebook"><svg class="icon"><use href="#i-facebook"/></svg></a></li>
+          <li><a href="#" aria-label="Twitter"><svg class="icon"><use href="#i-twitter"/></svg></a></li>
+          <li><a href="#" aria-label="Instagram"><svg class="icon"><use href="#i-instagram"/></svg></a></li>
+          <li><a href="#" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
+        </ul>
+      </div>
+
+      <nav aria-labelledby="quick-links-title">
+        <h2 id="quick-links-title">QUICK LINKS</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="fleet.html">Browse Fleet</a></li>
+          <li><a href="my-trips.html">My Trips</a></li>
+          <li><a href="employee.html">Employee Portal</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="support-title">
+        <h2 id="support-title">SUPPORT</h2>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Booking FAQ</a></li>
+          <li><a href="#">Cancellation Policy</a></li>
+          <li><a href="#">Insurance Info</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2>GET IN TOUCH</h2>
+        <address>
+          <p><svg class="icon"><use href="#i-phone"/></svg> <a href="tel:+6580056589">+65 8005 6589</a></p>
+          <p><svg class="icon"><use href="#i-mail"/></svg> <a href="mailto:support@azoomrental.com">support@azoomrental.com</a></p>
+          <p><svg class="icon"><use href="#i-pin"/></svg> <span>369 Toa Payoh Lorong 2, Singapore 256879</span></p>
+        </address>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 AZoom Car Rental. All rights reserved.</p>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

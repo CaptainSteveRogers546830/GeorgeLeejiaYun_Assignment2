@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Trips | AZoom Car Rental</title>
+  <meta name="description" content="Look up your AZoom bookings, return your car and pay your final bill.">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="trips-body">
+
+  <!-- ICON SPRITE: only the icons this page uses -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+    <symbol id="i-twitter" viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+  </svg>
+
+  <!-- HEADER: class "solid" keeps it white from the top -->
+  <header class="site-header solid" id="site-header">
+    <a class="logo logo-brand" href="index.html" aria-label="AZoom Car Rental home">
+      <img src="images/logo.png" alt="" width="360" height="243">
+    </a>
+
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="header-right" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="header-right" id="header-right">
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="fleet.html">Fleet</a></li>
+          <li><a href="my-trips.html" aria-current="page">My Trips</a></li>
+          <li><a href="employee.html">Employee</a></li>
+        </ul>
+      </nav>
+      <a class="header-phone" href="tel:+6580056589">
+        <svg class="icon"><use href="#i-phone"/></svg>
+        <span>+65 8005 6589</span>
+      </a>
+      <a class="header-account" id="account-link" href="login.html">
+        <svg class="icon"><use href="#i-user"/></svg>
+        <span>Log in</span>
+      </a>
+      <a class="button button-primary" href="booking.html">Reserve Now</a>
+    </div>
+  </header>
+
+  <main class="trips-page">
+    <div class="container trips-container">
+
+      <header class="page-head">
+        <h1>My Trips</h1>
+        <p>Look up your bookings, return your car, and pay your final bill.</p>
+      </header>
+
+      <!-- LOOKUP FORM -->
+      <form class="lookup-card" id="lookup-form" novalidate>
+        <div class="field">
+          <label for="booking-ref">BOOKING REFERENCE</label>
+          <input type="text" id="booking-ref" name="ref" placeholder="e.g. A1B2C3D4" autocomplete="off" maxlength="12">
+        </div>
+
+        <div class="field">
+          <label for="booking-email">OR EMAIL ADDRESS</label>
+          <input type="email" id="booking-email" name="email" placeholder="john@example.com" autocomplete="email">
+        </div>
+
+        <button type="submit" class="button button-primary button-wide">
+          <svg class="icon"><use href="#i-search"/></svg>
+          Find My Bookings
+        </button>
+
+        <p class="form-message" id="lookup-message" role="alert"></p>
+      </form>
+
+      <p class="lookup-hint">
+        Logged in as <strong id="trips-account"></strong>. You can only look up bookings made with your account.
+        <button type="button" class="link-button" id="reset-demo">Reset demo data</button>
+      </p>
+
+      <!-- RESULTS (filled in by my-trips.js) -->
+      <section id="results" class="results" aria-live="polite"></section>
+
+    </div>
+  </main>
+
+  <!-- RETURN CAR DIALOG -->
+  <dialog id="return-dialog" aria-labelledby="return-title">
+    <form id="return-form" novalidate>
+      <div class="dialog-head">
+        <h2 id="return-title">Return your car</h2>
+        <button type="button" class="dialog-close" data-close aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+      </div>
+
+      <p class="dialog-text" id="return-car-name"></p>
+
+      <div class="field">
+        <label for="return-carpark">RETURN CAR PARK</label>
+        <select id="return-carpark" name="carpark">
+          <option value="" selected disabled>Select a car park</option>
+          <option value="Toa Payoh Car Park">Toa Payoh Car Park</option>
+          <option value="Woodlands Car Park">Woodlands Car Park</option>
+          <option value="Changi Car Park">Changi Car Park</option>
+          <option value="Orchard Road Car Park">Orchard Road Car Park</option>
+          <option value="HarbourFront Car Park">HarbourFront Car Park</option>
+          <option value="Jurong East Car Park">Jurong East Car Park</option>
+        </select>
+      </div>
+
+      <label class="check-row" for="return-confirm">
+        <input type="checkbox" id="return-confirm">
+        <span>I have parked the car, locked it and taken my belongings.</span>
+      </label>
+
+      <p class="form-message" id="return-message" role="alert"></p>
+
+      <div class="dialog-actions">
+        <button type="button" class="button button-ghost" data-close>Cancel</button>
+        <button type="submit" class="button button-primary">Confirm return</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- PAY FINAL BILL DIALOG -->
+  <dialog id="pay-dialog" aria-labelledby="pay-title">
+    <div id="pay-view">
+      <div class="dialog-head">
+        <h2 id="pay-title">Pay final bill</h2>
+        <button type="button" class="dialog-close" data-close aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+      </div>
+
+      <p class="dialog-text" id="pay-car-name"></p>
+
+      <dl class="bill" id="pay-bill"></dl>
+
+      <form id="pay-form" novalidate>
+        <div class="field">
+          <label for="card-name">NAME ON CARD</label>
+          <input type="text" id="card-name" autocomplete="cc-name" placeholder="John Tan">
+        </div>
+
+        <div class="field">
+          <label for="card-number">CARD NUMBER</label>
+          <input type="text" id="card-number" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="card-expiry">EXPIRY (MM/YY)</label>
+            <input type="text" id="card-expiry" inputmode="numeric" autocomplete="cc-exp" placeholder="08/29" maxlength="5">
+          </div>
+          <div class="field">
+            <label for="card-cvv">CVV</label>
+            <input type="password" id="card-cvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4">
+          </div>
+        </div>
+
+        <p class="form-message" id="pay-message" role="alert"></p>
+
+        <div class="dialog-actions">
+          <button type="button" class="button button-ghost" data-close>Cancel</button>
+          <button type="submit" class="button button-primary" id="pay-submit">Pay now</button>
+        </div>
+
+        <p class="dialog-note">Demo only: no real payment is made and card details are never stored.</p>
+      </form>
+    </div>
+
+    <div id="pay-success" class="pay-success" hidden>
+      <span class="success-icon"><svg class="icon"><use href="#i-check"/></svg></span>
+      <h2>Payment successful</h2>
+      <p id="pay-success-text"></p>
+      <button type="button" class="button button-primary" data-close>Done</button>
+    </div>
+  </dialog>
+
+  <!-- REVIEW DIALOG (completed trips only) -->
+  <dialog id="review-dialog" aria-labelledby="review-title">
+    <form id="review-form" novalidate>
+      <div class="dialog-head">
+        <h2 id="review-title">Review your trip</h2>
+        <button type="button" class="dialog-close" data-close aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+      </div>
+
+      <p class="dialog-text" id="review-car"></p>
+
+      <fieldset class="star-input">
+        <legend>YOUR RATING</legend>
+        <div class="star-row">
+          <input type="radio" class="visually-hidden" name="rating" id="star-1" value="1"><label for="star-1" title="1 star">&#9733;<span class="visually-hidden"> 1 star</span></label>
+          <input type="radio" class="visually-hidden" name="rating" id="star-2" value="2"><label for="star-2" title="2 stars">&#9733;<span class="visually-hidden"> 2 stars</span></label>
+          <input type="radio" class="visually-hidden" name="rating" id="star-3" value="3"><label for="star-3" title="3 stars">&#9733;<span class="visually-hidden"> 3 stars</span></label>
+          <input type="radio" class="visually-hidden" name="rating" id="star-4" value="4"><label for="star-4" title="4 stars">&#9733;<span class="visually-hidden"> 4 stars</span></label>
+          <input type="radio" class="visually-hidden" name="rating" id="star-5" value="5"><label for="star-5" title="5 stars">&#9733;<span class="visually-hidden"> 5 stars</span></label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="review-comment">YOUR REVIEW (OPTIONAL)</label>
+        <textarea id="review-comment" rows="4" maxlength="400" placeholder="How was the car, the pick-up and the return?"></textarea>
+        <p class="char-count" id="review-count">0 / 400</p>
+      </div>
+
+      <p class="form-message" id="review-message" role="alert"></p>
+
+      <div class="dialog-actions">
+        <button type="button" class="link-button link-danger" id="review-delete" hidden>Delete review</button>
+        <button type="button" class="button button-ghost" data-close>Cancel</button>
+        <button type="submit" class="button button-primary">Save review</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+        <a class="logo" href="index.html" aria-label="AZoom Car Rental home">
+          <img src="images/logo.png" alt="AZoom Car Rental" width="100" height="150">
+          <span class="logo-text">
+            <span class="logo-name">AZoom</span>
+            <span class="logo-sub">CAR RENTAL</span>
+          </span>
+        </a>
+        <p>Your trusted partner for car rentals. Reserve online, pick up at our office, return at any designated car park.</p>
+        <ul class="social">
+          <li><a href="#" aria-label="Facebook"><svg class="icon"><use href="#i-facebook"/></svg></a></li>
+          <li><a href="#" aria-label="Twitter"><svg class="icon"><use href="#i-twitter"/></svg></a></li>
+          <li><a href="#" aria-label="Instagram"><svg class="icon"><use href="#i-instagram"/></svg></a></li>
+          <li><a href="#" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
+        </ul>
+      </div>
+
+      <nav aria-labelledby="quick-links-title">
+        <h2 id="quick-links-title">QUICK LINKS</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="fleet.html">Browse Fleet</a></li>
+          <li><a href="my-trips.html">My Trips</a></li>
+          <li><a href="employee.html">Employee Portal</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="support-title">
+        <h2 id="support-title">SUPPORT</h2>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Booking FAQ</a></li>
+          <li><a href="#">Cancellation Policy</a></li>
+          <li><a href="#">Insurance Info</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2>GET IN TOUCH</h2>
+        <address>
+          <p><svg class="icon"><use href="#i-phone"/></svg> <a href="tel:+6580056589">+65 8005 6589</a></p>
+          <p><svg class="icon"><use href="#i-mail"/></svg> <a href="mailto:support@azoomrental.com">support@azoomrental.com</a></p>
+          <p><svg class="icon"><use href="#i-pin"/></svg> <span>369 Toa Payoh Lorong 2, Singapore 256879</span></p>
+        </address>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 AZoom Car Rental. All rights reserved.</p>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

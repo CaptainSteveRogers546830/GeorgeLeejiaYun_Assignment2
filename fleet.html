@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Fleet | AZoom Car Rental</title>
+  <meta name="description" content="Browse AZoom's electric cars. Filter by category, seats and price, then reserve online.">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- ICON SPRITE: only the icons this page uses -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M21 4h-7M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3M14 2v4M8 10v4M16 18v4"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+    <symbol id="i-twitter" viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  </svg>
+
+  <!-- HEADER: class "solid" keeps it white from the top, because this page has no photo behind it -->
+  <header class="site-header solid" id="site-header">
+    <a class="logo logo-brand" href="index.html" aria-label="AZoom Car Rental home">
+      <img src="images/logo.png" alt="" width="360" height="243">
+    </a>
+
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="header-right" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="header-right" id="header-right">
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="fleet.html" aria-current="page">Fleet</a></li>
+          <li><a href="my-trips.html">My Trips</a></li>
+          <li><a href="employee.html">Employee</a></li>
+        </ul>
+      </nav>
+      <a class="header-phone" href="tel:+6580056589">
+        <svg class="icon"><use href="#i-phone"/></svg>
+        <span>+65 8005 6589</span>
+      </a>
+      <a class="header-account" id="account-link" href="login.html">
+        <svg class="icon"><use href="#i-user"/></svg>
+        <span>Log in</span>
+      </a>
+      <a class="button button-primary" href="booking.html">Reserve Now</a>
+    </div>
+  </header>
+
+  <main class="fleet-page">
+    <div class="container">
+
+      <header class="section-head">
+        <p class="eyebrow">OUR FLEET</p>
+        <h1>Find Your Perfect Ride</h1>
+        <p>Browse our collection of electric vehicles. Reserve online with your credit card &mdash; pick up at any AZoom office.</p>
+      </header>
+
+      <!-- SEARCH + SORT -->
+      <div class="toolbar">
+        <div class="search-box">
+          <svg class="icon"><use href="#i-search"/></svg>
+          <label for="search" class="visually-hidden">Search cars</label>
+          <input type="search" id="search" placeholder="Search by car name or brand..." autocomplete="off">
+        </div>
+        <div class="sort-box">
+          <label for="sort" class="visually-hidden">Sort cars</label>
+          <select id="sort">
+            <option value="price-asc" selected>Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+            <option value="range">Longest Range</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fleet-layout">
+
+        <!-- FILTERS SIDEBAR -->
+        <aside class="filters" aria-label="Filters">
+          <div class="filters-head">
+            <h2><svg class="icon"><use href="#i-sliders"/></svg> Filters</h2>
+            <button type="button" class="link-button" id="reset-filters">Reset all</button>
+          </div>
+
+          <fieldset class="filter-group">
+            <legend>CATEGORY</legend>
+            <div class="chips">
+              <button type="button" class="chip is-active" data-group="category" data-value="All" aria-pressed="true">All</button>
+              <button type="button" class="chip" data-group="category" data-value="Hatchback" aria-pressed="false">Hatchback</button>
+              <button type="button" class="chip" data-group="category" data-value="Sedan" aria-pressed="false">Sedan</button>
+              <button type="button" class="chip" data-group="category" data-value="SUV" aria-pressed="false">SUV</button>
+              <button type="button" class="chip" data-group="category" data-value="Luxury" aria-pressed="false">Luxury</button>
+              <button type="button" class="chip" data-group="category" data-value="Sports" aria-pressed="false">Sports</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend>SEATS</legend>
+            <div class="chips">
+              <button type="button" class="chip is-active" data-group="seats" data-value="All" aria-pressed="true">All</button>
+              <button type="button" class="chip" data-group="seats" data-value="4" aria-pressed="false">4 seats</button>
+              <button type="button" class="chip" data-group="seats" data-value="5" aria-pressed="false">5 seats</button>
+              <button type="button" class="chip" data-group="seats" data-value="7" aria-pressed="false">7 seats</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend>AVAILABILITY</legend>
+            <div class="chips">
+              <button type="button" class="chip is-active" data-group="status" data-value="All" aria-pressed="true">All</button>
+              <button type="button" class="chip" data-group="status" data-value="Available" aria-pressed="false">Available</button>
+              <button type="button" class="chip" data-group="status" data-value="Rented" aria-pressed="false">Rented</button>
+            </div>
+          </fieldset>
+
+          <div class="filter-group">
+            <label for="price-range" class="price-label">MAX PRICE: <strong id="price-value">$300/DAY</strong></label>
+            <input type="range" id="price-range" min="30" max="300" step="5" value="300">
+          </div>
+        </aside>
+
+        <!-- RESULTS -->
+        <section class="results" aria-label="Cars">
+          <p class="result-count" id="result-count" aria-live="polite"></p>
+          <div class="cars-grid" id="cars-grid">
+            <!-- Cards are generated by fleet.js -->
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- A CAR'S REVIEWS -->
+  <dialog id="car-reviews-dialog" aria-labelledby="car-reviews-title">
+    <div class="dialog-head">
+      <h2 id="car-reviews-title">Reviews</h2>
+      <button type="button" class="dialog-close" data-close aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+    </div>
+    <p class="car-reviews-summary" id="car-reviews-summary"></p>
+    <div class="car-reviews-list" id="car-reviews-list"></div>
+  </dialog>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+        <a class="logo" href="index.html" aria-label="AZoom Car Rental home">
+          <img src="images/logo.png" alt="AZoom Car Rental" width="100" height="150">
+          <span class="logo-text">
+            <span class="logo-name">AZoom</span>
+            <span class="logo-sub">CAR RENTAL</span>
+          </span>
+        </a>
+        <p>Your trusted partner for car rentals. Reserve online, pick up at our office, return at any designated car park.</p>
+        <ul class="social">
+          <li><a href="#" aria-label="Facebook"><svg class="icon"><use href="#i-facebook"/></svg></a></li>
+          <li><a href="#" aria-label="Twitter"><svg class="icon"><use href="#i-twitter"/></svg></a></li>
+          <li><a href="#" aria-label="Instagram"><svg class="icon"><use href="#i-instagram"/></svg></a></li>
+          <li><a href="#" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
+        </ul>
+      </div>
+
+      <nav aria-labelledby="quick-links-title">
+        <h2 id="quick-links-title">QUICK LINKS</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="fleet.html">Browse Fleet</a></li>
+          <li><a href="my-trips.html">My Trips</a></li>
+          <li><a href="employee.html">Employee Portal</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="support-title">
+        <h2 id="support-title">SUPPORT</h2>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Booking FAQ</a></li>
+          <li><a href="#">Cancellation Policy</a></li>
+          <li><a href="#">Insurance Info</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2>GET IN TOUCH</h2>
+        <address>
+          <p><svg class="icon"><use href="#i-phone"/></svg> <a href="tel:+6580056589">+65 8005 6589</a></p>
+          <p><svg class="icon"><use href="#i-mail"/></svg> <a href="mailto:support@azoomrental.com">support@azoomrental.com</a></p>
+          <p><svg class="icon"><use href="#i-pin"/></svg> <span>369 Toa Payoh Lorong 2, Singapore 256879</span></p>
+        </address>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 AZoom Car Rental. All rights reserved.</p>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
